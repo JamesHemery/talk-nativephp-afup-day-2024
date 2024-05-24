@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Events\QuickTaskShortcut;
+use Native\Laravel\Facades\GlobalShortcut;
 use Native\Laravel\Facades\MenuBar;
 use Native\Laravel\Facades\Window;
 use Native\Laravel\Contracts\ProvidesPhpIni;
@@ -14,7 +16,21 @@ class NativeAppServiceProvider implements ProvidesPhpIni
      */
     public function boot(): void
     {
-        Window::open();
+        MenuBar::create()
+            ->route('menu-bar')
+            ->alwaysOnTop();
+
+        Window::open()
+            ->showDevTools(false)
+            ->title('Hello Poitiers !')
+            ->width(400)
+            ->height(400)
+            ->rememberState()
+            ->alwaysOnTop();
+
+        GlobalShortcut::key('Option+P')
+            ->event(QuickTaskShortcut::class)
+            ->register();
     }
 
     /**

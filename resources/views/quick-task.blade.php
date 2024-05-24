@@ -1,5 +1,11 @@
 <x-layout :header="false" :transparent="true">
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, aliquid architecto blanditiis deserunt
-    expedita facere iusto minus officia praesentium provident quidem quod recusandae reprehenderit saepe sequi, totam
-    ullam velit vitae.
+    <livewire:new-task-form/>
+    <script>
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape") {
+                event.preventDefault();
+                window.close();
+            }
+        });
+    </script>
 </x-layout>
