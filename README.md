@@ -9,8 +9,12 @@ Slides : https://speakerdeck.com/jameshemery/une-application-de-bureau-en-php-vr
 1. Clone this repository
 2. `composer install`
 3. `php artisan native:install`
-4. `php artisan native:migrate --seed`
-5. `php artisan native:serve`
+4. `mv .env.example .env`
+5. `php artisan key:generate`
+6. `php artisan native:migrate --seed`
+7. `npm install`
+8. `npm run build`
+9. `php artisan native:serve`
 
 ---
 
